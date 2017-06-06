@@ -1,0 +1,1 @@
+# Chygrynets-Sergey_angular_dinamikaDevelopment
