@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ToDoList">
+<head>
+    <title>ToDo List (Task2)</title>
+    <script src="../../Libraries/angular.js"></script>
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script>
+      angular.module("ToDoList", [])
+
+
+      .controller("ListCtrl", function ($scope) {
+        $scope.taskForm = {};
+        $scope.index;
+        $scope.list = {
+            tasks: [{ 
+              name: "Купить молоко", 
+              description: "Сходить на рынок и купить молоко", 
+              date: "2/18/2015", 
+              completed: ''
+            },
+            { 
+              name: "Посмотреть видео урок по AngularJS", 
+              description: "Досмотреть до конца урок на itvdn.com", 
+              date: "2/18/2015", 
+              completed: '' 
+            }]
+          };
+            $scope.addNewTask = function (taskForm) {
+                $scope.list.tasks.push({
+                    name: taskForm.taskName,
+                    description: taskForm.taskDescription,
+                    date: taskForm.taskDate,
+                    completed: taskForm.taskCompleted
+                });
+                $scope.taskForm.taskName = "";
+                $scope.taskForm.taskDescription = "";
+                $scope.taskForm.taskDate = "";
+                $scope.taskForm.taskCompleted = "";
+            };
+            $scope.editTask = function (task, index) {
+            	$scope.index = index;
+                $scope.taskForm.taskName = task.name;
+                $scope.taskForm.taskDescription = task.description;
+                $scope.taskForm.taskDate = task.date;
+                $scope.taskForm.taskCompleted = task.completed;
+            };
+            $scope.saveTask = function (taskForm) {
+                $scope.list.tasks[$scope.index].name = taskForm.taskName;
+                $scope.list.tasks[$scope.index].description = taskForm.taskDescription;
+                $scope.list.tasks[$scope.index].date = taskForm.taskDate;
+                $scope.list.tasks[$scope.index].completed = taskForm.taskCompleted;
+                $scope.taskForm.taskName = "";
+                $scope.taskForm.taskDescription = "";
+                $scope.taskForm.taskDate = "";
+                $scope.taskForm.taskCompleted = "";
+            }
+
+      });
+
+    </script>
+
+</head>
+<body ng-controller="ListCtrl">
+
+    <div class="container">
+
+        <h3>ToDo List</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="task in list.tasks">
+                <td>{{task.name}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.date}}</td>
+                <td>{{task.completed}}</td>
+                <td>
+                    <button class="btn" ng-click="editTask(task, $index)">
+                        Edit ME!
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <div>
+            <form name="newTaskForm" >
+                <div class="form-group">
+                    <label for="taskNameInput">Name</label>
+                    <input class="form-control" ng-model="taskForm.taskName" id="taskNameInput"/>
+                </div>
+                <div class="form-group">
+                    <label for="taskDateInput">Due Date</label>
+                    <input class="form-control"  ng-model="taskForm.taskDescription" id="taskDateInput"/>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescriptionInput">Description</label>
+                    <textarea class="form-control" ng-model="taskForm.taskDate" rows="3" id="taskDescriptionInput"></textarea>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" ng-model="taskForm.taskCompleted" >Completed</label>
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="addNewTask(taskForm)">Add new task</button>
+                <button class="btn btn-default" ng-click="saveTask(taskForm)">Save changes</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

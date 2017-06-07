@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="lesson_11">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Sergey Chygrynets">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Work 11</title>
+</head>
+<body  ng-controller="Ctrl" ng-cloak="" >
+  <header>Lesson 11</header>
+  <br/>
+  <div>
+    <input type="text" name="messageInput"/ ng-model="message" placeholder="Enter something">
+    <button  ng-click="getText(message)">Click ME!</button>
+  </div>
+  <br/>
+  <div>{{text}}</div>
+
+  <script src="../Libraries/angular.js"></script>
+  <script type="text/javascript">
+    angular.module('lesson_11',[])
+    
+    .controller('Ctrl', Ctrl);
+    function Ctrl($scope) {
+      var greet = "Hello";
+      $scope.text = greet;
+      $scope.getText = function (message) {
+        if  (message === undefined) {
+          $scope.text = "You enter: nothing";
+        } else {
+          $scope.text = "You enter: " + message;
+        };
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

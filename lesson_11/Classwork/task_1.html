@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="lesson_11">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Sergey Chygrynets">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Work 11</title>
+</head>
+<body  ng-controller="Ctrl" ng-cloak="" >
+  <header>Lesson 11</header>
+  <br/>
+    <div>{{message}}</div>
+  
+
+  <script src="../Libraries/angular.js"></script>
+  <script type="text/javascript">
+    angular.module('lesson_11',[])
+    
+    .controller('Ctrl', Ctrl);
+    function Ctrl($scope) {
+
+      var greet = "Hello World";
+      $scope.message = greet;
+    }
+
+  </script>
+
+</body>
+</html>

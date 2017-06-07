@@ -1,1 +1,1 @@
-# Chygrynets-Sergey_angular_dinamikaDevelopment
+# Angular.js
