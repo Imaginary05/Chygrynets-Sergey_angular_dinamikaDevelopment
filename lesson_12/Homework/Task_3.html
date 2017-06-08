@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <title>SPA</title>
+    
+    <script>
+
+        angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+
+        })
+
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+   <div>
+        <div class="container">
+            <form>
+                <table class="table">
+                    <th>
+                        <label>
+                            <input type="radio" value="question1" ng-model="task3.question"> Question №1 
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <input type="radio" value="question2" ng-model="task3.question"> Question №2 
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <input type="radio" value="question3" ng-model="task3.question"> Question №3 
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <input type="radio" value="question4" ng-model="task3.question"> Question №4 
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <input type="radio" value="question5" ng-model="task3.question"> Question №5 
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <input type="radio" value="results" ng-model="task3.question"> Results 
+                        </label>
+                    </th>
+                </table>
+            </form>
+            <hr>
+            <div ng-switch="task3.question" id="wrapper">
+                <div ng-switch-when="question1">
+                    <h2> Question 1 </h2>
+                    <div>What is your favorite color?</div>
+                    <div><label>
+                            <input type="radio" value="Red" ng-model="task3.question1"> Red 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Green" ng-model="task3.question1"> Green 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Blue" ng-model="task3.question1"> Blue 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Yellow" ng-model="task3.question1"> Yellow 
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="question2">
+                    <h2> Question 2 </h2>
+                    <div>What kind of fruit do you like more?</div>
+                    <div><label>
+                            <input type="radio" value="Apple" ng-model="task3.question2"> Apple 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Orange" ng-model="task3.question2"> Orange 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Banana" ng-model="task3.question2"> Banana 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Grape" ng-model="task3.question2"> Grape 
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="question3">
+                    <h2> Question 3 </h2>
+                    <div>What kind of pet do you like more?</div>
+                    <div><label>
+                            <input type="radio" value="Dog" ng-model="task3.question3"> Dog 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Cat" ng-model="task3.question3"> Cat 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Parrot" ng-model="task3.question3"> Parrot 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="Lizard" ng-model="task3.question3"> Lizard 
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="question4">
+                    <h2> Question 4 </h2>
+                    <div>How many brothers and sisters do you have?</div>
+                    <div><label>
+                            <input type="radio" value="0" ng-model="task3.question4"> 0 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="1" ng-model="task3.question4"> 1 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="2" ng-model="task3.question4"> 2 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="3 or more" ng-model="task3.question4"> 3 or more 
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="question5">
+                    <h2> Question 5 </h2>
+                    <div>How old are you?</div>
+                    <div><label>
+                            <input type="radio" value="0-14" ng-model="task3.question5"> 0-14 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="15-18 " ng-model="task3.question5"> 15-18 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="19-25 " ng-model="task3.question5"> 19-25 
+                        </label>
+                    </div>
+                    <div><label>
+                            <input type="radio" value="26 and older " ng-model="task3.question5"> 26 and older 
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="results">
+                    <h2> Your results:</h2>
+                    <table class="table">
+                        <thead >
+                            <tr>
+                                <th>
+                                    Question 1
+                                </th>
+                                <th>
+                                    Question 2
+                                </th>
+                                <th>
+                                    Question 3
+                                </th>
+                                <th>
+                                    Question 4
+                                </th>
+                                <th>
+                                    Question 5
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{task3.question1}}
+                                </td>
+                                <td>
+                                    {{task3.question2}}
+                                </td>
+                                <td>
+                                    {{task3.question3}}
+                                </td>
+                                <td>
+                                    {{task3.question4}}
+                                </td>
+                                <td>
+                                    {{task3.question5}}
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+                <div ng-switch-default>
+                    <h2> Hello! Select question.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
